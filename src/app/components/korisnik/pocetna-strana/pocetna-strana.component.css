@@ -1,0 +1,21 @@
+.VoziloKartica{
+    width: 300px;
+    margin-bottom: 10px;
+
+}
+
+.PodaciPretrage {
+    display: flex;
+    justify-content: center;
+}
+
+.PodaciPretrage input {
+    margin-left: 10px;
+    display: block;
+}
+.PolejZaPrikaz{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 20px auto;
+    justify-content: space-evenly;
+}

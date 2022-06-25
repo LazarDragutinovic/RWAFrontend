@@ -1,0 +1,5 @@
+
+<mat-card *ngFor="let centar of centri | async">
+    <mat-card-title>{{centar.naziv}}</mat-card-title>
+    <mat-card-subtitle>{{"adresa:"+centar.adresa}}</mat-card-subtitle>
+</mat-card>

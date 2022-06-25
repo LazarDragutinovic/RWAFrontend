@@ -1,0 +1,15 @@
+<form [formGroup]="formInputiZaPretragu" class="PodaciPretrage">
+    <mat-form-field>
+        <input matNativeControl formControlName="proizvodjac" placeholder="proizvodjac" >
+    </mat-form-field>
+    <mat-form-field>
+        <input matNativeControl formControlName="grad" placeholder="grad">
+    </mat-form-field>
+    
+</form>
+<div class="PolejZaPrikaz">
+    <mat-card (click)="izaberiVozilo(vozilo.id)" class="VoziloKartica" *ngFor="let vozilo of vozila |async">
+        <mat-card-title>{{vozilo.voziloLogicko?.proizvodjac}}</mat-card-title>
+        <mat-card-subtitle>{{vozilo.centar?.grad}}</mat-card-subtitle>
+    </mat-card>
+</div>
