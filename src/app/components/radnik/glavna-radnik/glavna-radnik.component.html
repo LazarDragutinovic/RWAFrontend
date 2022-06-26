@@ -1,11 +1,13 @@
 <mat-toolbar color="primary">
 
-    <a mat-button routerLink="./">Pocetna</a>
-    <a mat-button routerLink="Login">Login</a>
-    <a mat-button routerLink="Sastanak">Sastanci</a>
-    <a mat-button routerLink="Popravke">Popravke</a>
-    <a mat-button routerLink="Korisnici">Korisnici</a>
-    <a mat-button routerLink="Radnici">Radnici</a>
+    <a mat-button routerLink="./" *ngIf="loginovan">Pocetna</a>
+    <a mat-button routerLink="Login" *ngIf="!loginovan">Login</a>
+    <button mat-button (click)="logout()" *ngIf="loginovan">Logout</button>
+    <a mat-button routerLink="Sastanak" *ngIf="loginovan">Sastanci</a>
+    <a mat-button routerLink="Popravke" *ngIf="mehanicar || sluzbenik">Popravke</a>
+    <a mat-button routerLink="Korisnici" *ngIf="sluzbenik || upravnik">Korisnici</a>
+    <a mat-button routerLink="Radnici" *ngIf="upravnik">Radnici</a>
+    
 </mat-toolbar>
 <router-outlet></router-outlet>
 

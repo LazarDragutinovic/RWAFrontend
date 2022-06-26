@@ -11,4 +11,6 @@ function selectKorisnikFeature(appState:appState) {
 
 let korisnikSelektor = createSelector(selectKorisnikFeature,(state)=>state)
 
+let radnikCentarGrad = createSelector(selectKorisnikFeature,(state)=>state.centar?.grad)
+
 export {korisnikSelektor}

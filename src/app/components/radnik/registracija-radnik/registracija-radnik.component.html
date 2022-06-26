@@ -1,1 +1,21 @@
-<p>registracija-radnik works!</p>
+<form [formGroup]="formReg" class="radnikReg">
+    <mat-form-field>
+        <input matNativeControl formControlName="ime" placeholder="ime">
+    </mat-form-field>
+    <mat-form-field>
+        <input matNativeControl formControlName="prezime" placeholder="prezime">
+    </mat-form-field>
+    <mat-form-field>
+        <input matNativeControl formControlName="email" placeholder="email">
+    </mat-form-field>
+    <mat-form-field>
+        <input matNativeControl formControlName="lozinka" type="password" placeholder="lozinka">
+    </mat-form-field>
+    <mat-form-field>
+        <input matNativeControl formControlName="lozinkaPonovljena" type="password" placeholder="ponovi lozinku">
+    </mat-form-field>
+</form>
+<div class="radnikRegKontrole">
+    <button mat-raised-button color="primary" (click)="register()">Dovrsi registraciju</button>
+    <a routerLink="../Login" mat-raised-button color="warn">Odustani</a>
+</div>

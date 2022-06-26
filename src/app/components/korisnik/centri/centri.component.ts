@@ -17,7 +17,13 @@ export class CentriComponent implements OnInit {
 
   centri: Observable<Centar[]> = of([]);
   ngOnInit(): void {
-    this.store.dispatch(loadCentri())
+    this.store.select(centriSelector).subscribe(x=>{
+      if(x.length == 0) {
+        this.store.dispatch(loadCentri())
+      }
+    }
+    )
+    
     this.centri = this.store.select(centriSelector)
     
   }

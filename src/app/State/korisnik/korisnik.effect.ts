@@ -3,7 +3,8 @@ import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { of } from 'rxjs';
 import { map, mergeMap, catchError } from 'rxjs/operators';
 import { AutentifikacijaService } from 'src/app/services/autentifikacija.service';
-import { validirajKorisnika, validirajKorisnikaFail, validirajKorisnikaSuccess, loginKorisnika,loginKorisnikaSuccess, loginKorisnikaFail, validirajRadnika, validirajRadnikaSuccess, validirajRadnikaFail, loginRadnika, loginRadnikaSuccess, loginRadnikaFail, logoutKorisnikSuccess, logoutKorisnikFail, logoutRadnik, logoutRadnikSuccess, registracijaKorisnik, registracijaKorisnikFail } from './korisnik.action';
+import { CentriService } from 'src/app/services/centri.service';
+import { validirajKorisnika, validirajKorisnikaFail, validirajKorisnikaSuccess, loginKorisnika,loginKorisnikaSuccess, loginKorisnikaFail, validirajRadnika, validirajRadnikaSuccess, validirajRadnikaFail, loginRadnika, loginRadnikaSuccess, loginRadnikaFail, logoutKorisnikSuccess, logoutKorisnikFail, logoutRadnik, logoutRadnikSuccess, registracijaKorisnik, registracijaKorisnikFail, registracijaRadnik, registracijaRadnikFail, preuzmiCentarZaRadnika, preuzmiCentarZaRadnikaSuccse, preuzmiCentarZaRadnikaFail } from './korisnik.action';
 import { logoutKorisnik,logoutRadnikFail } from './korisnik.action';
  
 @Injectable()
@@ -37,12 +38,17 @@ export class KorisnikEffects {
   logoutRadnika$ = createEffect(() =>
   this.actions$.pipe(
     ofType(logoutRadnik),
-    mergeMap(() => this.autenService.logOutRadnika()
+    mergeMap(() =>{
+      return this.autenService.logOutRadnika()
       .pipe(
-        map(() => (logoutRadnikSuccess())),
+        map(() => {
+          console.log("Ovde")
+          return (logoutRadnikSuccess())}),
         catchError(() => of(logoutRadnikFail()))
       )
+    }
     )
+    
   )
 );
 
@@ -104,9 +110,46 @@ logoutKorisnika$ = createEffect(() =>
         
     )
   );
+
+  registrujRadnika$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(registracijaRadnik),
+      mergeMap((korisnik) => { 
+        let lozinka = korisnik.lozinka;
+        let email = korisnik.email
+        return this.autenService.registracijaRadnika(korisnik)
+        .pipe(
+          map(korisnik => (loginRadnika({email,lozinka}))),
+          catchError((x) => {
+            alert(x.error.message)
+            return of(registracijaRadnikFail())})
+        )
+        }
+      )
+        
+    )
+  );
+
+  preuzmiCentar$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(preuzmiCentarZaRadnika),
+      mergeMap(({id}) => { 
+        return this.centarService.preuzmiCentarRadnika(id)
+        .pipe(
+          map(centar => (preuzmiCentarZaRadnikaSuccse(centar))),
+          catchError((x) => {
+            alert(x.error.message)
+            return of(preuzmiCentarZaRadnikaFail())})
+        )
+        }
+      )
+        
+    )
+  );
  
   constructor(
     private actions$: Actions,
-    private autenService: AutentifikacijaService
-  ) {}
+    private autenService: AutentifikacijaService,
+    private centarService:CentriService
+    ) {}
 }

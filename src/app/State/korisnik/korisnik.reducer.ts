@@ -1,12 +1,14 @@
 import { createReducer ,on} from "@ngrx/store"
-import { loginKorisnikaSuccess, loginRadnikaSuccess, logoutKorisnikSuccess, validirajKorisnika, validirajKorisnikaSuccess, validirajRadnika, validirajRadnikaSuccess } from "./korisnik.action";
+import { Radnik } from "src/app/models/radnik";
+import { loginKorisnikaSuccess, loginRadnikaSuccess, logoutKorisnikSuccess, logoutRadnikSuccess, preuzmiCentarZaRadnika, preuzmiCentarZaRadnikaSuccse, validirajKorisnika, validirajKorisnikaSuccess, validirajRadnika, validirajRadnikaSuccess } from "./korisnik.action";
 import { korisnikState, TipKorisnika } from "./korisnikState";
 
 
 
 let initialState: korisnikState = {
     tip: TipKorisnika.KORISNIK,
-    korisnik: null
+    korisnik: null,
+    centar: null
 }
 
 
@@ -41,6 +43,19 @@ let korisnikReducer = createReducer(initialState,
         newState.korisnik = null;
         newState.tip = TipKorisnika.KORISNIK
         console.log(newState)
+        return newState
+    }),
+    on(logoutRadnikSuccess,(state)=>{
+        console.log("WTF")
+        let newState = {...state}
+        newState.korisnik = null;
+        newState.tip = TipKorisnika.KORISNIK
+        console.log(newState)
+        return newState
+    }),
+    on(preuzmiCentarZaRadnikaSuccse,(state,centar)=>{
+        let newState ={...state}
+        newState.centar = centar
         return newState
     })
     );

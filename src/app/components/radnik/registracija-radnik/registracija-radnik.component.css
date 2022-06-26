@@ -1,0 +1,27 @@
+.radnikReg{
+    display: flex;
+    max-width: 500px;
+    width: 90%;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 50px auto;
+    
+
+}
+
+.radnikReg input {
+    width: 180px;
+    margin-bottom: 15px;
+}
+
+.radnikRegKontrole {
+    text-align: center;
+}
+
+.radnikRegKontrole button {
+    margin-right: 5px;
+}
+
+.radnikRegKontrole a {
+    margin-left: 5px;
+}

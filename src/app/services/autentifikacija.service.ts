@@ -21,8 +21,7 @@ export class AutentifikacijaService {
   }
 
   logOutKorisnik() {
-    console.log("ovde")
-    return this.httpClient.post<void>(environment.api+"auten/log-out",null,{withCredentials:true});
+    return this.httpClient.post(environment.api+"auten/log-out",null,{withCredentials:true,responseType:"text"});
   }
 
   validirajRadnika() : Observable<Radnik> {
@@ -34,7 +33,7 @@ export class AutentifikacijaService {
   }
 
   logOutRadnika() {
-    return this.httpClient.post(environment.api+"autentifikacija-radnik/log-out",null,{withCredentials:true});
+    return this.httpClient.post(environment.api+"autentifikacija-radnik/log-out",null,{withCredentials:true,responseType:"text"});
   }
 
 
@@ -42,4 +41,8 @@ export class AutentifikacijaService {
     return this.httpClient.post<Korisnik>(environment.api+"auten/register",korisnik,{withCredentials:true})
                 .pipe(map(x=><Korisnik>x))
   } 
+
+  registracijaRadnika(radnik: Radnik) : Observable<Radnik> {
+    return this.httpClient.post<Radnik>(environment.api+"autentifikacija-radnik/register",radnik,{withCredentials:true})
+  }
 }

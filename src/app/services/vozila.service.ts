@@ -18,6 +18,9 @@ export class VozilaService {
     return this.httpClient.get<Vozilo[]>(environment.api+`vozilo/Pretraga/${proizvodjac}/${grad}`)
   }
 
+  pretraziSlobodnaVozila(proizvodjac:string,grad:string) {
+    return this.httpClient.get<Vozilo[]>(environment.api+`vozilo/PretragaSlobodna/${proizvodjac}/${grad}`,{withCredentials:true})
+  }
   voziloLajkovi(id:number) {
     return this.httpClient.get<number>(environment.api+`like/LikoviVozila/${id}`)
   }

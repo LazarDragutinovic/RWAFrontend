@@ -1,1 +1,11 @@
-<p>korisnici works!</p>
+<div *ngIf="!izabraniKorisnik">
+    <form [formGroup]="korisnikEmail" class="PretragaKorisnika">
+        <mat-form-field>
+            <input matNativeControl placeholder="unesite email korisnika" formControlName="email">
+        </mat-form-field>
+    </form>
+    <div class="RezultatiPretrage">
+        <app-korisnik-kartica (Emiter)="preuzmiKorisnika($event)" *ngFor="let korisnik of korisnici | async" [korisnik]="korisnik"></app-korisnik-kartica>
+    </div>
+</div>
+<app-korisnik-detaljno (Emiter)="resetujKorisnika()" [korisnik]="izabraniKorisnik" *ngIf="izabraniKorisnik"></app-korisnik-detaljno>

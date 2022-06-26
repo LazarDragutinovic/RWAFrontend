@@ -16,7 +16,7 @@ export interface Vozilo {
     id: number;
 
     godiste: number;
-
+    registracionaOznaka: string
     cenaPoDanu: number
 
     voziloLogicko: VoziloLogicko | undefined

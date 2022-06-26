@@ -13,4 +13,8 @@ export class CentriService {
   preuzmiCentre() {
     return this.httpClient.get<Centar[]>(environment.api+"centar/SviCentri")
   }
+
+  preuzmiCentarRadnika(id:number) {
+    return this.httpClient.get<Centar>(environment.api+"centar/CentarRadnika/"+id,{withCredentials:true})
+  }
 }

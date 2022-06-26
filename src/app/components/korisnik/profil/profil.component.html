@@ -1,2 +1,12 @@
 <p>profil works!</p>
 <button mat-raised-button color="warn" (click)="logout()">Logout</button>
+<mat-card *ngFor="let iznajmljivanje of iznajmljivanja | async">
+    <mat-card-header>
+        <mat-card-title>
+            {{iznajmljivanje.vozilo?.voziloLogicko?.proizvodjac + " " + iznajmljivanje.vozilo?.voziloLogicko?.model}}
+        </mat-card-title>
+        <mat-card-subtitle *ngIf="iznajmljivanje.zavrseno" >
+            {{"Ukupna cena za "+ iznajmljivanje.dana+" je " + this.cenaUkupna(iznajmljivanje)}}
+        </mat-card-subtitle>
+    </mat-card-header>
+</mat-card>

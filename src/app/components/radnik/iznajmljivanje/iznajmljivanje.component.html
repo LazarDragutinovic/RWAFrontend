@@ -1,0 +1,10 @@
+<mat-card *ngIf="iznajmljivanje" class="iznajmljivanjeKartica">
+    <div class="rasporediUKartici">
+        <p>{{iznajmljivanje.vozilo}}</p>
+        <p>{{lepDatum()}}</p>
+        <p>{{iznajmljivanje.dana}}</p>
+        <p *ngIf="iznajmljivanje.zavrseno">Zavrseno</p>
+        <button *ngIf="!iznajmljivanje.zavrseno" (click)="zavrsi()" mat-raised-button color="warn">Zavrsi</button>
+    </div>
+    <mat-card-subtitle *ngIf="zakasnio()">Zakasnio je </mat-card-subtitle>
+</mat-card>

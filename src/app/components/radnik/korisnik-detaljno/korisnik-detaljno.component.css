@@ -1,0 +1,48 @@
+.korisnikDetaljnoKontrole {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px;
+}
+
+.korisnikDashboard {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin-top: 40px;
+}
+
+
+.dodavanje {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top:0;
+    left: 0;
+    background-color: rgba(0,0,0,0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.formica {
+    background-color: white;
+    border-radius: 5px;
+    padding: 5px;
+    height: 160px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+
+.formica select {
+    display: block;
+    width: 200px;
+    margin-top: 10px;
+}
+
+.formica .dugmici button {
+    width: 46%;
+    margin: 0 1%;
+}
+

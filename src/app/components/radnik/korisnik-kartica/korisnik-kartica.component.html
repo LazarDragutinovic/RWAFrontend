@@ -1,0 +1,15 @@
+<mat-card class="kartica" (click)="emitujKorisnika()">
+    <mat-card-title >
+        {{"korisnik: "+ korisnik?.ime + " " + korisnik?.prezime}}
+    </mat-card-title> 
+	<mat-card-subtitle>
+        {{"email: "+ korisnik?.email}}
+    </mat-card-subtitle>
+	<mat-card-subtitle>
+        {{"jmbg: " + korisnik?.jmbg}}
+    </mat-card-subtitle>
+    <mat-card-subtitle>
+        {{"broj telefona: " + korisnik?.brojTelefona}}
+    </mat-card-subtitle>
+
+</mat-card>

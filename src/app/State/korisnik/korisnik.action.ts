@@ -1,4 +1,5 @@
 import { createAction, props } from "@ngrx/store";
+import { Centar } from "src/app/models/centar";
 import { Korisnik } from "src/app/models/korisnik";
 import { Radnik } from "src/app/models/radnik";
 
@@ -50,7 +51,19 @@ let registracijaKorisnik = createAction("RegistracijaKorisnik", props<Korisnik>(
 
 let registracijaKorisnikFail = createAction("RegistracijaKorisnikFail")
 
-export {registracijaKorisnik,registracijaKorisnikFail}
+let registracijaRadnik = createAction("RegistracijaRadnik", props<Radnik>())
+
+let registracijaRadnikFail = createAction("RegistracijaRadnikFail")
+
+let preuzmiCentarZaRadnika = createAction("PreuzmiCentarZaRadnika",props<{id:number}>())
+
+let preuzmiCentarZaRadnikaSuccse = createAction("PreuzmiCentarZaRadnikaSuccess", props<Centar>())
+
+let preuzmiCentarZaRadnikaFail = createAction("preuzmiCentarZaRadnikaFail")
+
+export {preuzmiCentarZaRadnika,preuzmiCentarZaRadnikaFail,preuzmiCentarZaRadnikaSuccse}
+
+export {registracijaKorisnik,registracijaKorisnikFail, registracijaRadnik, registracijaRadnikFail}
 
 export {loginKorisnika,loginKorisnikaFail,loginKorisnikaSuccess,loginRadnika,loginRadnikaFail,loginRadnikaSuccess}
 export {logoutKorisnik, logoutKorisnikSuccess,logoutKorisnikFail,logoutRadnik,logoutRadnikFail,logoutRadnikSuccess}

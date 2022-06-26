@@ -1,1 +1,12 @@
-<p>login-radnik works!</p>
+<form [formGroup]="formLogin" class="radnikLogin">
+    <mat-form-field>
+        <input matNativeControl formControlName="email" placeholder="email">
+    </mat-form-field>
+    <mat-form-field>
+        <input matNativeControl formControlName="lozinka" placeholder="lozinka">
+    </mat-form-field>
+</form>
+<div class="radnikLoginKontrole">
+    <button mat-raised-button color="primary" (click)="login()">Log in</button>
+    <a routerLink="../Registracija" mat-raised-button color="accent">Registurj se</a>
+</div>

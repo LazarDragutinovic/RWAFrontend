@@ -1,0 +1,26 @@
+.radnikLogin{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 400px;
+    width: 90%;
+    margin: 30px auto;
+    
+}
+
+.radnikLogin input {
+    width: 98%!important;
+}
+
+.radnikLoginKontrole {
+    text-align: center;
+}
+
+.radnikLoginKontrole button {
+    margin-right: 5px;
+
+
+}
+.radnikLoginKontrole a {
+    margin-left: 5px;
+}

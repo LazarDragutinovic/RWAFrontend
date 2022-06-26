@@ -40,6 +40,12 @@ import centriReducer from './State/centri/centri.reducer';
 import {MatCardModule} from '@angular/material/card';
 import vozilaReducer from './State/vozila/vozila.reducer';
 import { VozilaEffects } from './State/vozila/vozilo.effect';
+import iznajmljivanjeReducer from './State/iznajmljivanje/iznajmljivanje.reducer';
+import { IznajmljivanjaEffects } from './State/iznajmljivanje/iznajmljivanje.effect';
+import { KorisnikKarticaComponent } from './components/radnik/korisnik-kartica/korisnik-kartica.component';
+import { IznajmljivanjeComponent } from './components/radnik/iznajmljivanje/iznajmljivanje.component';
+import { DodavanjeIznajmComponent } from './components/radnik/dodavanje-iznajm/dodavanje-iznajm.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -60,7 +66,10 @@ import { VozilaEffects } from './State/vozila/vozilo.effect';
     PopravkaDetaljnoComponent,
     GlavnaRadnikComponent,
     PocetnaRadnikComponent,
-    RadniciComponent
+    RadniciComponent,
+    KorisnikKarticaComponent,
+    IznajmljivanjeComponent,
+    DodavanjeIznajmComponent
   ],
   imports: [
     MatCardModule,
@@ -70,8 +79,8 @@ import { VozilaEffects } from './State/vozila/vozilo.effect';
     MatSliderModule,
     MatToolbarModule,
     MatButtonModule,
-    StoreModule.forRoot<appState>({korisnikState: korisnikReducer,centriState:centriReducer,vozilaState:vozilaReducer}),
-    EffectsModule.forRoot([KorisnikEffects,CentarEffects,VozilaEffects]),
+    StoreModule.forRoot<appState>({korisnikState: korisnikReducer,centriState:centriReducer,vozilaState:vozilaReducer,iznajmljivanjeState:iznajmljivanjeReducer}),
+    EffectsModule.forRoot([KorisnikEffects,CentarEffects,VozilaEffects,IznajmljivanjaEffects]),
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,

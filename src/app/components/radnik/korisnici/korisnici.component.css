@@ -1,0 +1,10 @@
+.RezultatiPretrage {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.PretragaKorisnika{
+    text-align: center;
+    margin-top: 20px;
+}

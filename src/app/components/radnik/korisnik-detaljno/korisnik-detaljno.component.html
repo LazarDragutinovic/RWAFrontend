@@ -1,1 +1,44 @@
-<p>korisnik-detaljno works!</p>
+<div class="korisnikDetaljnoKontrole">
+    <button mat-raised-button color="warn" (click)="vratiSe()">Nazad</button>
+</div>
+<div class="korisnikDashboard">
+    
+    <app-korisnik-kartica [korisnik]="korisnik"></app-korisnik-kartica>
+
+    <div class="iznajmljivanja">
+        <app-iznajmljivanje [iznajmljivanje]="iznajmljivanje" *ngFor="let iznajmljivanje of iznajmljivanjaKorisnika"></app-iznajmljivanje>
+        <button (click)="dodavanjeToggle(true)" mat-raised-button color="primary">Dodaj</button>
+    </div>
+</div>
+
+<div *ngIf="dodavanje" class="dodavanje">
+    <div class="formica">
+        <form [formGroup]="formPretragaVozila">
+            <mat-form-field>
+                 <input formControlName="proizvodjac" matNativeControl placeholder="proizvodjac" />
+            </mat-form-field> 
+            <mat-form-field>
+                 <input formControlName="grad" matNativeControl placeholder="grad" />
+             </mat-form-field>
+             
+         </form>
+         <form [formGroup]="iznajmlivanjeForm">
+            <label>Datum</label>
+            <input formControlName="datum" type="date">
+            <label>Dana</label>
+            <input formControlName="dana" type="number" min="1" value="1">
+            <select formControlName="idVozila">
+                <option [value]="vozilo.id" *ngFor="let vozilo of vozila">{{vozilo.voziloLogicko?.proizvodjac+" "+ vozilo.voziloLogicko?.model+ " "+ vozilo.registracionaOznaka}}</option>
+            </select>
+             
+         </form>
+         <div class="dugmici">
+            <button mat-raised-button color="primary" (click)="dodajIznajmljivanje()">Dodaj</button>
+            <button mat-raised-button color="warn" (click)="dodavanjeToggle(false)">Odustani</button>
+         </div>
+         
+
+
+    </div>
+    
+</div>

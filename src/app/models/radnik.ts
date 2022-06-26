@@ -2,6 +2,7 @@ import { Popravka } from "./popravka"
 import { RadiU } from "./radi-u"
 import { Sastanak } from "./sastanak"
 import { Iznajmljivanje } from "./iznajmljivanje"
+import { Centar } from "./centar"
 enum Pozicija {
     UPRAVNIK="UPRAVNIK",
     SLUZBENIK="SLUZBENIK",
@@ -29,6 +30,7 @@ export interface Radnik {
 
     popravke: Popravka[] | undefined
 
+    centar: Centar | undefined
 
     poslovi: RadiU[] | undefined
 

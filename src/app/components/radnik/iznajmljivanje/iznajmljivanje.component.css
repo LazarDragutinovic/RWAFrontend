@@ -1,0 +1,14 @@
+.rasporediUKartici{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.rasporediUKartici p {
+    margin-left: 5px;
+}
+.rasporediUKartici button {
+    margin-left: 5px;
+}
+.iznajmljivanjeKartica{
+    margin-bottom: 8px;
+}

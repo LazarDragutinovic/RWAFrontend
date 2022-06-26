@@ -17,7 +17,11 @@ export class GlavnaComponent implements OnInit {
   logedin: boolean = false;
   ngOnInit(): void {
     this.korisnik.subscribe(x=>{
+      
       if(x.korisnik != null) this.logedin = true;
+      else {
+        this.logedin = false
+      }
     })
   }
 
