@@ -1,0 +1,27 @@
+<form class="dodajVoziloForm" [formGroup]="forma">
+    <select formControlName="idLogickogVozila">
+        <option value="-1">
+            izaberi vozilo
+        </option>
+        <option [value]="voziloL.id" *ngFor="let voziloL of vozilaLogicka">
+            {{voziloL.proizvodjac+" "+voziloL.model}}
+        </option>
+    </select>
+    <mat-form-field>
+        <input matNativeControl placeholder="registarska oznaka" formControlName="registracionaOznaka">
+    </mat-form-field>
+    <mat-form-field>
+        <input matNativeControl placeholder="godiste" formControlName="godiste">
+    </mat-form-field>
+    <mat-form-field>
+        <input matNativeControl placeholder="cena po danu" formControlName="cenaPoDanu">
+    </mat-form-field>
+    <mat-form-field>
+        <input matNativeControl placeholder="slikaUrl" formControlName="slika">
+    </mat-form-field>
+    <img [src]="slikaUrl" class="slikaVozila">
+</form>
+<div class="DodajVoziloKontrole">
+    <button mat-raised-button color="primary" (click)="dodajVozilo()">Dodaj</button>
+    <button mat-raised-button color="accent" (click)="reset()">Reset</button>
+</div>

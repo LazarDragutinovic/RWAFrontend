@@ -3,8 +3,9 @@
     <span>Rent a Car</span>
     <div class="spacer"></div>
     <a mat-button routerLink="/">Pocenta</a>
-    <a mat-button routerLink="Profil" [style]="logedin? '':'display: none'">Profil</a>
-    <a mat-button routerLink="Login" [style]="logedin? 'display:none;':''">Login</a>
+    <a mat-button routerLink="Profil" *ngIf="logedin">Profil</a>
+    <a mat-button routerLink="Login" *ngIf="!logedin">Login</a>
+    <button mat-button *ngIf="logedin" (click)="logout()">Logout</button>
     <a mat-button routerLink="Centri">Centri</a>
 </mat-toolbar>
 <router-outlet></router-outlet>

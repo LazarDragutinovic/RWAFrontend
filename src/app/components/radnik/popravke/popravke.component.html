@@ -1,1 +1,22 @@
-<p>popravke works!</p>
+<h1 class="popravkeH1">{{"Popravke za centar: "+ centar?.naziv}}</h1>
+<div class="zaSluzbenika" *ngIf="sluzbenik()">
+
+    <form [formGroup]="voziloForm">
+        <mat-form-field>
+            <input matNativeControl formControlName="proizvodjac">
+        </mat-form-field>
+    </form>
+    <form [formGroup]="izabranoVoziloForm">
+        <select formControlName="id">
+            <option value="-1">
+                izaberi vozilo
+            </option>
+            <option [value]="vozilo.id" *ngFor="let vozilo of mogucaVozila">{{vozilo.voziloLogicko?.proizvodjac +" "+ vozilo.voziloLogicko?.model+" "+vozilo.registracionaOznaka}}</option>
+        </select>
+    </form>
+    <button mat-raised-button color="primary" (click)="dodajPopravku()">Posalji na popravku</button>
+</div>
+<div class="zaSve">
+    <app-popravka-detaljno [mehanicar]="mehanicar()" [idm]="radnik?.id" [popravka]="popravka" *ngFor="let popravka of popravke"></app-popravka-detaljno>
+</div>
+

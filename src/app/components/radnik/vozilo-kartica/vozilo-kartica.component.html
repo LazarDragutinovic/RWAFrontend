@@ -1,0 +1,21 @@
+<mat-card class="kartica" (click)="emitujVozilo()">
+    <mat-card-title>
+        {{vozilo?.voziloLogicko?.proizvodjac+ " "+ vozilo?.voziloLogicko?.model}}
+    </mat-card-title>
+    <img mat-card-image [src]="Slika()" >
+    <mat-card-subtitle>
+        {{vozilo?.registracionaOznaka}}
+    </mat-card-subtitle>
+    <mat-card-subtitle>
+        {{"Godiste: "+vozilo?.godiste}}
+    </mat-card-subtitle>
+    <mat-card-subtitle>
+        {{"Cena po danu: "+ vozilo?.cenaPoDanu}}
+    </mat-card-subtitle>
+    <mat-card-subtitle *ngIf="!vozilo?.centar">
+        {{"Centar: nije rasporedjeno"}}
+    </mat-card-subtitle>
+    <mat-card-subtitle *ngIf="vozilo?.centar">
+        {{"Centar: "+ vozilo?.centar?.naziv}}
+    </mat-card-subtitle>
+</mat-card>

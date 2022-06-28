@@ -1,5 +1,9 @@
+<div class="centri">
+    <mat-card *ngFor="let centar of centri | async" class="centarReprezentacija">
+        <mat-card-title>{{centar.naziv}}</mat-card-title>
+        <img mat-card-image [src]="slikaCentar(centar)">
+        <mat-card-subtitle>{{"adresa:"+centar.adresa}}</mat-card-subtitle>
+        <mat-card-subtitle>{{"broj telefona: " + centar.telefon}}</mat-card-subtitle>
+    </mat-card>
+</div>
 
-<mat-card *ngFor="let centar of centri | async">
-    <mat-card-title>{{centar.naziv}}</mat-card-title>
-    <mat-card-subtitle>{{"adresa:"+centar.adresa}}</mat-card-subtitle>
-</mat-card>

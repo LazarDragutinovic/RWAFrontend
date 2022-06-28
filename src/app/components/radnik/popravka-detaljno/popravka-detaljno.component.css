@@ -1,0 +1,8 @@
+
+.popravkaPrikaz {
+    display: flex;
+    justify-content: space-around;
+    width: 90%;
+    max-width: 700px;
+    margin: 40px auto;
+}

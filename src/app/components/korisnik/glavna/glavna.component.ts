@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { appState } from 'src/app/State/appState';
+import { logoutKorisnik } from 'src/app/State/korisnik/korisnik.action';
 import { korisnikSelektor } from 'src/app/State/korisnik/korisnik.selector';
 import { korisnikState } from 'src/app/State/korisnik/korisnikState';
 
@@ -23,6 +24,11 @@ export class GlavnaComponent implements OnInit {
         this.logedin = false
       }
     })
+  }
+
+  logout() {
+    this.store.dispatch(logoutKorisnik())
+    
   }
 
 }

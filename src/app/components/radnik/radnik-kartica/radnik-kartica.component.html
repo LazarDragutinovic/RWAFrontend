@@ -1,0 +1,20 @@
+<mat-card class="kartica" (click)="emitujRadnika()">
+    <mat-card-title >
+        {{radnik?.ime + " " + radnik?.prezime}}
+    </mat-card-title> 
+	<mat-card-subtitle>
+        {{"email: "+ radnik?.email}}
+    </mat-card-subtitle>
+	<mat-card-subtitle>
+        {{"Pozicija: "+radnik?.pozicija}}
+    </mat-card-subtitle>
+    <mat-card-subtitle *ngIf="radnik?.odobren">
+        Status Naloga: Odobren
+    </mat-card-subtitle>
+    <mat-card-subtitle *ngIf="!radnik?.odobren">
+        Status Naloga: Neodobren
+    </mat-card-subtitle>
+    <mat-card-subtitle *ngIf="centar">
+        {{"Rasporednjen u centru: "+centar.naziv}}
+    </mat-card-subtitle>
+</mat-card>

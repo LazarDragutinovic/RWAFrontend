@@ -1,1 +1,11 @@
-<p>radnici works!</p>
+<form class="radnikPretragaForm" [formGroup]="radnikForm" *ngIf="!izabraniRadnik">
+    <mat-form-field>
+        <input matNativeControl placeholder="email radnika" formControlName="email">
+    </mat-form-field>
+</form>
+<div class="prikazSvihRadnika" *ngIf="!izabraniRadnik">
+    <app-radnik-kartica (Emiter)="preuzmiRadnika($event)" [radnik]="radnik" *ngFor="let radnik of radnici | async"></app-radnik-kartica>
+</div>
+<app-radnik-detaljno (Emiter)="preuzmiRadnika($event)" [radnik]="izabraniRadnik" *ngIf="izabraniRadnik">
+
+</app-radnik-detaljno>

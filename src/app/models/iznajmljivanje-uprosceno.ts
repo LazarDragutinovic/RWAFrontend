@@ -14,5 +14,6 @@ export interface iznajmljivanjeUprosceno {
     datum: Date,
     dana: number,
     zavrseno: boolean,
-    vozilo:string
+    vozilo:string,
+    cenaUkupna: number
 }

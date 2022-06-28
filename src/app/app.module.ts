@@ -45,6 +45,15 @@ import { IznajmljivanjaEffects } from './State/iznajmljivanje/iznajmljivanje.eff
 import { KorisnikKarticaComponent } from './components/radnik/korisnik-kartica/korisnik-kartica.component';
 import { IznajmljivanjeComponent } from './components/radnik/iznajmljivanje/iznajmljivanje.component';
 import { DodavanjeIznajmComponent } from './components/radnik/dodavanje-iznajm/dodavanje-iznajm.component';
+import { RadnikKarticaComponent } from './components/radnik/radnik-kartica/radnik-kartica.component';
+import { VozilaComponent } from './components/radnik/vozila/vozila.component';
+import { VoziloDodajGlavnaComponent } from './components/radnik/vozilo-dodaj-glavna/vozilo-dodaj-glavna.component';
+import { VoziloDodajGlavnaVoziloComponent } from './components/radnik/vozilo-dodaj-glavna-vozilo/vozilo-dodaj-glavna-vozilo.component';
+import { VoziloDodajGlavnaVoziloLogickoComponent } from './components/radnik/vozilo-dodaj-glavna-vozilo-logicko/vozilo-dodaj-glavna-vozilo-logicko.component';
+import { VoziloKarticaComponent } from './components/radnik/vozilo-kartica/vozilo-kartica.component';
+import { VoziloDetaljnoComponent } from './components/radnik/vozilo-detaljno/vozilo-detaljno.component';
+import { SastanakLjudiComponent } from './components/radnik/sastanak-ljudi/sastanak-ljudi.component';
+import { SastanakRadnikComponent } from './components/radnik/sastanak-radnik/sastanak-radnik.component';
 
 @NgModule({
   declarations: [
@@ -69,7 +78,17 @@ import { DodavanjeIznajmComponent } from './components/radnik/dodavanje-iznajm/d
     RadniciComponent,
     KorisnikKarticaComponent,
     IznajmljivanjeComponent,
-    DodavanjeIznajmComponent
+    DodavanjeIznajmComponent,
+    RadnikKarticaComponent,
+    VozilaComponent,
+    VoziloDodajGlavnaComponent,
+    VoziloDodajGlavnaVoziloComponent,
+    VoziloDodajGlavnaVoziloLogickoComponent,
+    VoziloKarticaComponent,
+    VoziloDetaljnoComponent,
+    SastanakLjudiComponent,
+    SastanakRadnikComponent,
+  
   ],
   imports: [
     MatCardModule,

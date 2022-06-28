@@ -1,0 +1,26 @@
+<div class="dodajVoziloLogicko">
+    <form [formGroup]="logVolForm">
+        <mat-form-field>
+            <input matNativeControl placeholder="proizvodjac" formControlName="proizvodjac">
+        </mat-form-field>
+        <mat-form-field>
+            <input matNativeControl placeholder="model" formControlName="model">
+        </mat-form-field>
+        <mat-form-field>
+            <input matNativeControl placeholder="tip" formControlName="tip">
+        </mat-form-field>
+
+        <button mat-raised-button color="primary" (click)="dodaj()">Dodaj</button>
+
+    </form>
+    <div class="svaLogicka">
+        <mat-card *ngFor="let vozilo of vozilaLogicka" class="logickoKartica">
+            <mat-card-title>
+                {{vozilo.proizvodjac+"-"+vozilo.model + " "+ vozilo.tip}}
+            </mat-card-title>
+            <button mat-raised-button color="warn" (click)="obrisi(vozilo.id)">Obrisi</button>
+
+        </mat-card>
+    </div>
+    
+</div>

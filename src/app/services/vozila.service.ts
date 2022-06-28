@@ -18,6 +18,11 @@ export class VozilaService {
     return this.httpClient.get<Vozilo[]>(environment.api+`vozilo/Pretraga/${proizvodjac}/${grad}`)
   }
 
+  pretraziVozilaBezGrada(proizvodjac:string) {
+    return this.httpClient.get<Vozilo[]>(environment.api+`vozilo/PretragaBezGrada/${proizvodjac}`,{withCredentials:true})
+  }
+
+
   pretraziSlobodnaVozila(proizvodjac:string,grad:string) {
     return this.httpClient.get<Vozilo[]>(environment.api+`vozilo/PretragaSlobodna/${proizvodjac}/${grad}`,{withCredentials:true})
   }
@@ -36,5 +41,13 @@ export class VozilaService {
 
   dislike(id: number) {
     return this.httpClient.delete(environment.api+"like/obrisi/"+id,{withCredentials:true})
+  }
+
+  dodaj(podaci:any){
+    return this.httpClient.post<any>(environment.api+"vozilo/Dodaj",podaci,{withCredentials:true});
+  }
+
+  obrisi(id:number) {
+    return this.httpClient.delete(environment.api+"vozilo/Obrisi/"+id,{withCredentials:true,responseType:"text"})
   }
 }

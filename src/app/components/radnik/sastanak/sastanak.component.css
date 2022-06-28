@@ -1,0 +1,39 @@
+.zaUpravnika {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.kreirajSastanak {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+}
+
+.sastanakPasus {
+    font-size: 15px!important;
+    margin-bottom: 10px;
+}
+
+.sastanakPasus button {
+    margin-right: 5px;
+}
+
+.StatusPrikaz {
+    margin-top: 10px;
+}
+
+.zaSve {
+    display: flex;
+    flex-wrap: wrap;
+    width: 90%;
+    max-width: 900px;
+    margin: 50px auto;
+    justify-content: space-evenly;
+}
+.mojSastanak {
+    width: 90%;
+    max-width: 400px;
+    margin-bottom: 10px;
+}

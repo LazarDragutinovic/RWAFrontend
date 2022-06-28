@@ -17,4 +17,8 @@ export class CentriService {
   preuzmiCentarRadnika(id:number) {
     return this.httpClient.get<Centar>(environment.api+"centar/CentarRadnika/"+id,{withCredentials:true})
   }
+
+  postaviCentarVozila(idc: number,idv: number){
+    return this.httpClient.put(environment.api+`centar/PostaviCentarVozila/${idc}/${idv}`,null,{withCredentials:true,responseType:"text"})
+  }
 }

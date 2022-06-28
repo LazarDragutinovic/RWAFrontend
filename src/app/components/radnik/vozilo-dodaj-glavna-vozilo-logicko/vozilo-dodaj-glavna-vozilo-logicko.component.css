@@ -1,0 +1,20 @@
+.dodajVoziloLogicko form {
+    display: flex;
+    flex-direction: column;
+    width: 270px;
+    margin: 20px auto;
+    align-items: center;    
+}
+.dodajVoziloLogicko {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.svaLogicka {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+.logickoKartica {
+    margin-bottom: 10px;
+}

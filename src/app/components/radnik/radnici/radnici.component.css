@@ -1,0 +1,10 @@
+.radnikPretragaForm {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.prikazSvihRadnika {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}

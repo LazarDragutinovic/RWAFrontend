@@ -1,7 +1,13 @@
 .VoziloKartica{
     width: 300px;
     margin-bottom: 10px;
+    text-align: center;
+}
 
+.VoziloKartica img{
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
 }
 
 .PodaciPretrage {

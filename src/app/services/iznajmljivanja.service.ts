@@ -13,7 +13,7 @@ export class IznajmljivanjaService {
 
 
   preuzmiIznajmljivanjaKorisnika(id: number) {
-    return this.httpClient.get<Iznajmljivanje[]>(environment.api+"iznajmljivanje/preuzmiIznajmljivanjaKorisnikaKorisnik/"+id,{withCredentials:true})
+    return this.httpClient.get<iznajmljivanjeUprosceno[]>(environment.api+"iznajmljivanje/preuzmiIznajmljivanjaKorisnikaKorisnik/"+id,{withCredentials:true})
   }
 
   preuzmiIznajmljivanjaKorisnikaRadnik(id:number){

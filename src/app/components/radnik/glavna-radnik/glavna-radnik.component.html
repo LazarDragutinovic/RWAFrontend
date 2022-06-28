@@ -4,6 +4,7 @@
     <a mat-button routerLink="Login" *ngIf="!loginovan">Login</a>
     <button mat-button (click)="logout()" *ngIf="loginovan">Logout</button>
     <a mat-button routerLink="Sastanak" *ngIf="loginovan">Sastanci</a>
+    <a mat-button routerLink="Vozila" *ngIf="upravnik">Vozila</a>
     <a mat-button routerLink="Popravke" *ngIf="mehanicar || sluzbenik">Popravke</a>
     <a mat-button routerLink="Korisnici" *ngIf="sluzbenik || upravnik">Korisnici</a>
     <a mat-button routerLink="Radnici" *ngIf="upravnik">Radnici</a>

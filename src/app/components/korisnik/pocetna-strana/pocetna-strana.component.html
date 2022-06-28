@@ -8,8 +8,9 @@
     
 </form>
 <div class="PolejZaPrikaz">
-    <mat-card (click)="izaberiVozilo(vozilo.id)" class="VoziloKartica" *ngFor="let vozilo of vozila |async">
-        <mat-card-title>{{vozilo.voziloLogicko?.proizvodjac}}</mat-card-title>
+    <mat-card  (click)="izaberiVozilo(vozilo.id)" class="VoziloKartica" *ngFor="let vozilo of vozila |async">
+        <mat-card-title >{{vozilo.voziloLogicko?.proizvodjac + " "+ vozilo.voziloLogicko?.model}}</mat-card-title>
+        <img mat-card-image [src]="voziloSlika(vozilo)" alt="">
         <mat-card-subtitle>{{vozilo.centar?.grad}}</mat-card-subtitle>
     </mat-card>
 </div>

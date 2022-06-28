@@ -12,4 +12,10 @@ let loadCentriSuccess = createAction("loadCentriSuccess",props<{centri:Centar[]}
 
 let loadCentriFail = createAction("loadCentriFail")
 
-export {loadCentri,loadCentriFail,loadCentriSuccess}
+let loadCentarKorisnika = createAction("loadCentarKorisnika",props<{id:number}>())
+
+let loadCentarKorisnikaSuccess = createAction("loadCentarKorisnikaSuccess",props<Centar>())
+
+let loadCentarKorisnikaFail = createAction("loadCentarKorisnikaFail")
+
+export {loadCentri,loadCentriFail,loadCentriSuccess,loadCentarKorisnika,loadCentarKorisnikaSuccess,loadCentarKorisnikaFail}

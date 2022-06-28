@@ -1,1 +1,5 @@
-<p>pocetna-radnik works!</p>
+<div class="pocetnaContainer">
+
+    <h1 *ngIf="!(radnik |async)?.odobren" style="color:red">Nalog vam trenutno nije odobren obavestite upravnika da vas ubaci u sistem.</h1>
+    <app-radnik-kartica [radnik]="radnik | async" [centar]="centar"></app-radnik-kartica>
+</div>

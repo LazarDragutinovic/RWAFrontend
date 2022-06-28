@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
+import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { debounceTime, Observable, of } from 'rxjs';
@@ -15,7 +16,8 @@ import voizlaSelector from 'src/app/State/vozila/vozila.selector';
 })
 export class PocetnaStranaComponent implements OnInit {
 
-  constructor(private formBuilder : FormBuilder, private store: Store<appState>, private router: Router) { }
+  constructor(private formBuilder : FormBuilder, private store: Store<appState>, private router: Router,
+              private domSanitizer: DomSanitizer) { }
 
   formInputiZaPretragu = this.formBuilder.group({
     proizvodjac:[""],
@@ -35,6 +37,12 @@ export class PocetnaStranaComponent implements OnInit {
     this.store.dispatch(loadVozilaSva())
 
 
+  }
+
+  voziloSlika(vozilo:Vozilo):SafeUrl{
+    if(vozilo.slike)
+      return this.domSanitizer.bypassSecurityTrustResourceUrl(vozilo.slike[0].url)
+    return ""
   }
 
   izaberiVozilo(voziloId: number) {

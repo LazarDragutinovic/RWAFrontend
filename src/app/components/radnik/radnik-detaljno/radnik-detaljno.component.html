@@ -1,1 +1,17 @@
-<p>radnik-detaljno works!</p>
+<div class="nazadDiv">
+    <button mat-raised-button color="warn" (click)="nazad()">Nazad</button>
+</div>
+<div class="radnikDashboard">
+    <app-radnik-kartica [centar]="centarRadnika" [radnik]="radnik"></app-radnik-kartica>
+    <div class="kontroleRadnik">
+        <button (click)="odobriNalog()" mat-raised-button color="primary" *ngIf="!radnik?.odobren">Odobri nalog</button>
+        <button (click)="zabraniNalog()" mat-raised-button color="warn" *ngIf="radnik?.odobren">Zabrani nalog</button>
+        <button mat-raised-button color="primary" *ngIf="prikaziMehanicar()" (click)="preimenujUMehanicara()">Mehanicar</button>
+        <button mat-raised-button color="primary" *ngIf="prikaziSluzbenik()" (click)="preimenujUSluzbenika()">Sluzbenik</button>
+        <h1>Rasporedi u centar</h1>
+        <mat-card *ngFor="let centar of centri" class="rasporediKartica">
+            <p>{{centar.naziv}}</p>
+            <button (click)="rasporedi(centar.id)" mat-raised-button color="accent">Rasporedi</button>
+        </mat-card>
+    </div>
+</div>

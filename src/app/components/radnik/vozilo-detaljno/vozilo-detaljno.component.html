@@ -1,0 +1,19 @@
+<div class="voziloDetaljnoKontrole">
+    <button mat-raised-button color="warn" (click)="nazad()">Nazad</button>
+</div>
+<div class="voziloDetaljnoDashboard">
+    <div>
+        <app-vozilo-kartica [vozilo]="vozilo"></app-vozilo-kartica>
+        <button mat-raised-button color="warn" class="obrisiDugme" (click)="obrisiVozilo()">Obrisi vozilo</button>
+    </div>
+    
+    <div class="promene">
+        <div></div>
+        <div class="promenaCentra">
+            <mat-card *ngFor="let centar of centri" class="promena">
+                <p>{{centar.naziv}}</p>
+                <button mat-raised-button color="accent" (click)="postaviCentar(centar)">Promeni</button>
+            </mat-card>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,8 @@
+.vozilaKontrole {
+    display: flex;
+    justify-content: center;
+    
+}
+.vozilaKontrole button {
+    margin:10px;
+}

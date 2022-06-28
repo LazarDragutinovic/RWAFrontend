@@ -1,0 +1,31 @@
+<div class="pozoviForme">
+    <h1>{{"Sastanak "+sastanak?.tema + " "+ sastanak?.mesto}}</h1>
+    <form [formGroup]="pretragaRadnika">
+        <mat-form-field>
+            <input matNativeControl placeholder="email radnika" formControlName="email">
+        </mat-form-field>
+    </form>
+    <form [formGroup]="izabraniRadnikForm">
+        <select formControlName="id" [selectedIndex]="0">
+            <option value="-1">
+                Izaberi radnika
+            </option>
+            <option [value]="radnik.id" *ngFor="let radnik of moguciRadnici">
+                {{radnik.email+ " " + radnik.ime + " " + radnik.prezime + " " + (radnik.centar?  radnik.centar?.naziv: "")}}
+            </option>
+            
+        </select>
+    </form>
+    <div class="kontrole">
+        <button mat-raised-button color="primary" (click)="pozovi()">Pozovi</button>
+        <button mat-raised-button color="warn" (click)="zavrsiPozivanje()">Zavrsi pozivanje</button>
+    </div>
+    
+</div>
+<div class="pozvaniRadniciPrikaz">
+    <div *ngFor="let radnik of pozvani">
+        <app-radnik-kartica  [radnik]="radnik">
+        </app-radnik-kartica>
+        <button mat-raised-button color="warn" style="width: 100%;" (click)="opozovi(radnik)">Opozovi</button>
+    </div>
+</div>

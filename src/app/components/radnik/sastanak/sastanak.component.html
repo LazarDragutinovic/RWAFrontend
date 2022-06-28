@@ -1,1 +1,53 @@
-<p>sastanak works!</p>
+<div class="zaUpravnika" *ngIf="isUpravnik && !izabraniSastanak">
+    
+    <form class="kreirajSastanak" [formGroup]="kreirajForm">
+        <mat-form-field>
+            <input matNativeControl placeholder="Tema sastanka" formControlName="tema">
+        </mat-form-field>
+        <mat-form-field>
+            <input matNativeControl placeholder="mesto" formControlName="mesto">
+        </mat-form-field>
+        <mat-form-field>
+            <input matNativeControl placeholder="vreme" type="datetime-local" formControlName="vreme">
+        </mat-form-field>
+        <button mat-raised-button color="primary" (click)="kreiraj()">Kreiraj</button>
+    </form>
+    <div class="zakazaniSastanci">
+        <mat-card *ngFor="let sastanak of sastanci" class="sastanakPasus">
+            <mat-card-subtitle >
+                {{sastanak.tema + " "+ sastanak.mesto+ " "+ lepFormatVreme(sastanak.vreme)}}
+            </mat-card-subtitle>
+            <button mat-raised-button color="primary" (click)="izaberiSastanak(sastanak)">Pozvani</button>
+            <button mat-raised-button color="accent" *ngIf="prikaziOdlozi(sastanak)" (click)="odlozi(sastanak.id)">Odlozi</button>
+            <button mat-raised-button color="warn" *ngIf="prikaziOtkazi(sastanak)" (click)="otkazi(sastanak.id)">Otkazi</button>
+            <button mat-raised-button color="primary" *ngIf="prikaziOk(sastanak)" (click)="ok(sastanak.id)">Ok</button>
+            <mat-card-subtitle *ngIf="sastanak.status == 'OK'" class="StatusPrikaz">
+                Status satanka : OK
+            </mat-card-subtitle>
+            <mat-card-subtitle *ngIf="sastanak.status == 'OTKAZAN'" class="StatusPrikaz">
+                Status satanka : Otkazan
+            </mat-card-subtitle>
+            <mat-card-subtitle *ngIf="sastanak.status == 'ODLOZEN'" class="StatusPrikaz">
+                Status satanka : Odlozen
+            </mat-card-subtitle>
+        </mat-card>
+    </div>
+</div>
+<app-sastanak-ljudi *ngIf="izabraniSastanak" (Emiter)="izaberiSastanak($event)" [sastanak]="izabraniSastanak">
+</app-sastanak-ljudi>
+<div class="zaSve" *ngIf="!izabraniSastanak">
+    <mat-card *ngFor="let sastanak of mojiSastanci" class="mojSastanak">
+        <mat-card-title >
+            {{sastanak.tema + " "+ sastanak.mesto+ " "+ lepFormatVreme(sastanak.vreme)}}
+        </mat-card-title>
+        <mat-card-subtitle *ngIf="sastanak.status == 'OK'" class="StatusPrikaz">
+            Status satanka : OK
+        </mat-card-subtitle>
+        <mat-card-subtitle *ngIf="sastanak.status == 'OTKAZAN'" class="StatusPrikaz">
+            Status satanka : Otkazan
+        </mat-card-subtitle>
+        <mat-card-subtitle *ngIf="sastanak.status == 'ODLOZEN'" class="StatusPrikaz">
+            Status satanka : Odlozen
+        </mat-card-subtitle>
+    </mat-card>
+</div>

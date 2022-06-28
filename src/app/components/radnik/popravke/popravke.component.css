@@ -1,0 +1,14 @@
+.zaSluzbenika{
+    text-align: center;
+    width: 200px;
+    margin: 20px auto;
+}
+.zaSluzbenika select {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.popravkeH1 {
+    text-align: center;
+}
+

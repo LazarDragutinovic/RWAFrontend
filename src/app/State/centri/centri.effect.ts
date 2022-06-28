@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { catchError, map, mergeMap, of } from "rxjs";
 import { CentriService } from "src/app/services/centri.service";
-import { loadCentri , loadCentriFail, loadCentriSuccess} from "./centri.action";
+import { loadCentarKorisnika, loadCentarKorisnikaSuccess, loadCentri , loadCentriFail, loadCentriSuccess} from "./centri.action";
 
 
 
@@ -24,6 +24,21 @@ export class CentarEffects {
     )
   );
 
+
+  preuzmiCentarKorisnika$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(loadCentarKorisnika),
+      mergeMap(({id}) =>{
+          
+        return this.centriService.preuzmiCentarRadnika(id)
+        .pipe(
+          map(centar => (loadCentarKorisnikaSuccess(centar))),
+          catchError(() => of(loadCentriFail()))
+        )
+      }
+      )
+    )
+  );
     
  
   constructor(

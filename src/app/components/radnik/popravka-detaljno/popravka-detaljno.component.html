@@ -1,1 +1,18 @@
-<p>popravka-detaljno works!</p>
+<mat-card *ngIf="popravka" class="popravkaPrikaz">
+    <div>
+        <mat-card-title>
+            {{popravka.vozilo?.voziloLogicko?.proizvodjac +" "+ popravka.vozilo?.voziloLogicko?.model+" "+popravka.vozilo?.registracionaOznaka}}
+        </mat-card-title>
+        <mat-card-subtitle *ngIf="popravka.mehanicar && !popravka.obavljena">
+            {{"Popravku obavlja "+popravka.mehanicar.ime + " " + popravka.mehanicar.prezime}}
+        </mat-card-subtitle>
+        <mat-card-subtitle *ngIf="popravka.mehanicar && popravka.obavljena">
+            {{"Popravku je obavio "+popravka.mehanicar.ime + " " + popravka.mehanicar.prezime}}
+        </mat-card-subtitle>
+        <mat-card-subtitle *ngIf="!popravka.mehanicar">
+            Niko ne obavlja ovu popravku
+        </mat-card-subtitle>
+    </div>
+    <button mat-raised-button color="primary" *ngIf="prikaziPreuzmi()" (click)="preuzmiPopravku()">Preuzmi poravku</button>
+    <button mat-raised-button color="accent" *ngIf="prikaziZavrsi()" (click)="zavrsiPopravku()">Zavrsi popravku</button>
+</mat-card>

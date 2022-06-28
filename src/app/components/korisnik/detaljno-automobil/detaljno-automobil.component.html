@@ -1,8 +1,9 @@
-<mat-card  *ngIf="vozilo">
-    <mat-card-title>{{vozilo?.voziloLogicko?.proizvodjac}}</mat-card-title>
+<mat-card  *ngIf="vozilo" class="DetaljnoVoziloKorisnik">
+    <mat-card-title>{{vozilo?.voziloLogicko?.proizvodjac + " " + vozilo?.voziloLogicko?.model}}</mat-card-title>
     <mat-card-subtitle>{{"godina prozivodjne: "+vozilo.godiste}}</mat-card-subtitle>
     <mat-card-subtitle>{{"Nalazi se u centru: "+vozilo.centar?.naziv}}</mat-card-subtitle>
     <mat-card-subtitle>{{"Adresa centra: "+ vozilo.centar?.adresa + " " + vozilo.centar?.grad}}</mat-card-subtitle>
+    <mat-card-subtitle>{{"Cena po danu: "+ vozilo.cenaPoDanu+"din"}}</mat-card-subtitle>
     <div class="Slike">
         <img mat-card-image *ngFor="let slika of vozilo.slike" [src]="sanitizeUlr(slika.url)"/>
     </div>

@@ -13,10 +13,15 @@ import { KorisnikDetaljnoComponent } from './components/radnik/korisnik-detaljno
 import { LoginRadnikComponent } from './components/radnik/login-radnik/login-radnik.component';
 import { PocetnaRadnikComponent } from './components/radnik/pocetna-radnik/pocetna-radnik.component';
 import { PopravkaDetaljnoComponent } from './components/radnik/popravka-detaljno/popravka-detaljno.component';
+import { PopravkeComponent } from './components/radnik/popravke/popravke.component';
 import { RadniciComponent } from './components/radnik/radnici/radnici.component';
 import { RadnikDetaljnoComponent } from './components/radnik/radnik-detaljno/radnik-detaljno.component';
 import { RegistracijaRadnikComponent } from './components/radnik/registracija-radnik/registracija-radnik.component';
 import { SastanakComponent } from './components/radnik/sastanak/sastanak.component';
+import { VozilaComponent } from './components/radnik/vozila/vozila.component';
+import { VoziloDodajGlavnaVoziloLogickoComponent } from './components/radnik/vozilo-dodaj-glavna-vozilo-logicko/vozilo-dodaj-glavna-vozilo-logicko.component';
+import { VoziloDodajGlavnaVoziloComponent } from './components/radnik/vozilo-dodaj-glavna-vozilo/vozilo-dodaj-glavna-vozilo.component';
+import { VoziloDodajGlavnaComponent } from './components/radnik/vozilo-dodaj-glavna/vozilo-dodaj-glavna.component';
 
 const routes: Routes = [
   {
@@ -44,8 +49,14 @@ const routes: Routes = [
       {path:"RadnikDetaljno",component:RadnikDetaljnoComponent},
       {path:"Korisnici",component:KorisniciComponent},
       {path: "KorisnikDetaljno", component:KorisnikDetaljnoComponent},
-      {path: "Popravke", component:PopravkaDetaljnoComponent},
+      {path: "Popravke", component:PopravkeComponent},
       {path: "PopravkaDetaljno", component:PopravkaDetaljnoComponent},
+      {path:"Vozila",component:VoziloDodajGlavnaComponent,
+      children:[
+        {path:"",component:VozilaComponent},
+        {path:"VoziloDodaj",component:VoziloDodajGlavnaVoziloComponent},
+        {path:"VoziloDodajLogicko",component:VoziloDodajGlavnaVoziloLogickoComponent}
+      ]}
     ]
   }
 ];

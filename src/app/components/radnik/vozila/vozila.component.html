@@ -1,0 +1,9 @@
+<form *ngIf="!izabranoVozilo" class="svaVozilaPretragaForm" [formGroup]="pretragaForm">
+    <mat-form-field>
+        <input matNativeControl formControlName="proizvodjac" placeholder="proizvodjac">
+    </mat-form-field>
+</form>
+<div class="pretragaVozilaRadnik" *ngIf="!izabranoVozilo"> 
+    <app-vozilo-kartica (Emitter)="postaviVozilo($event)" [vozilo]="vozilo" *ngFor="let vozilo of vozila"></app-vozilo-kartica>
+</div>
+<app-vozilo-detaljno *ngIf="izabranoVozilo" [vozilo]="izabranoVozilo" (EmiterObrisi)="deleteHandler($event)" (Emiter)="postaviVozilo($event)"></app-vozilo-detaljno>

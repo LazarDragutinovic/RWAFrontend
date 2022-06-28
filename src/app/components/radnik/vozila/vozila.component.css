@@ -1,0 +1,9 @@
+.pretragaVozilaRadnik {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.svaVozilaPretragaForm {
+    text-align: center;
+}
