@@ -35,7 +35,7 @@ export class PocetnaStranaComponent implements OnInit {
     
     this.vozila.subscribe(x=>console.log(x))
     this.store.dispatch(loadVozilaSva())
-
+    
 
   }
 

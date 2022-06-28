@@ -22,6 +22,7 @@ import { VozilaComponent } from './components/radnik/vozila/vozila.component';
 import { VoziloDodajGlavnaVoziloLogickoComponent } from './components/radnik/vozilo-dodaj-glavna-vozilo-logicko/vozilo-dodaj-glavna-vozilo-logicko.component';
 import { VoziloDodajGlavnaVoziloComponent } from './components/radnik/vozilo-dodaj-glavna-vozilo/vozilo-dodaj-glavna-vozilo.component';
 import { VoziloDodajGlavnaComponent } from './components/radnik/vozilo-dodaj-glavna/vozilo-dodaj-glavna.component';
+import { AuthenticationGuard } from './guards/authentication.guard';
 
 const routes: Routes = [
   {
@@ -40,18 +41,18 @@ const routes: Routes = [
     path:"radnik",
     component:GlavnaRadnikComponent,
     children: [
-      {path:"",component:PocetnaRadnikComponent},
+      {path:"",component:PocetnaRadnikComponent,canActivate:[AuthenticationGuard]},
       {path:"Login",component:LoginRadnikComponent}
       ,
       {path:"Registracija",component:RegistracijaRadnikComponent},
-      {path:"Sastanak",component:SastanakComponent},
-      {path:"Radnici",component:RadniciComponent},
-      {path:"RadnikDetaljno",component:RadnikDetaljnoComponent},
-      {path:"Korisnici",component:KorisniciComponent},
-      {path: "KorisnikDetaljno", component:KorisnikDetaljnoComponent},
-      {path: "Popravke", component:PopravkeComponent},
-      {path: "PopravkaDetaljno", component:PopravkaDetaljnoComponent},
-      {path:"Vozila",component:VoziloDodajGlavnaComponent,
+      {path:"Sastanak",component:SastanakComponent,canActivate:[AuthenticationGuard]},
+      {path:"Radnici",component:RadniciComponent,canActivate:[AuthenticationGuard]},
+      {path:"RadnikDetaljno",component:RadnikDetaljnoComponent,canActivate:[AuthenticationGuard]},
+      {path:"Korisnici",component:KorisniciComponent,canActivate:[AuthenticationGuard]},
+      {path: "KorisnikDetaljno", component:KorisnikDetaljnoComponent,canActivate:[AuthenticationGuard]},
+      {path: "Popravke", component:PopravkeComponent,canActivate:[AuthenticationGuard]},
+      {path: "PopravkaDetaljno", component:PopravkaDetaljnoComponent,canActivate:[AuthenticationGuard]},
+      {path:"Vozila",component:VoziloDodajGlavnaComponent,canActivate:[AuthenticationGuard],
       children:[
         {path:"",component:VozilaComponent},
         {path:"VoziloDodaj",component:VoziloDodajGlavnaVoziloComponent},

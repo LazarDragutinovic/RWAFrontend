@@ -1,13 +1,13 @@
 <mat-toolbar color="primary">
 
-    <a mat-button routerLink="./" *ngIf="loginovan">Pocetna</a>
-    <a mat-button routerLink="Login" *ngIf="!loginovan">Login</a>
+    <a mat-button routerLink="./" routerLinkActive="active" *ngIf="loginovan" [routerLinkActiveOptions]="{ exact: true }">Pocetna</a>
+    <a mat-button routerLink="Login" routerLinkActive="active" *ngIf="!loginovan">Login</a>
     <button mat-button (click)="logout()" *ngIf="loginovan">Logout</button>
-    <a mat-button routerLink="Sastanak" *ngIf="loginovan">Sastanci</a>
-    <a mat-button routerLink="Vozila" *ngIf="upravnik">Vozila</a>
-    <a mat-button routerLink="Popravke" *ngIf="mehanicar || sluzbenik">Popravke</a>
-    <a mat-button routerLink="Korisnici" *ngIf="sluzbenik || upravnik">Korisnici</a>
-    <a mat-button routerLink="Radnici" *ngIf="upravnik">Radnici</a>
+    <a mat-button routerLink="Sastanak" routerLinkActive="active" *ngIf="loginovan">Sastanci</a>
+    <a mat-button routerLink="Vozila" routerLinkActive="active" *ngIf="upravnik">Vozila</a>
+    <a mat-button routerLink="Popravke" routerLinkActive="active" *ngIf="mehanicar || sluzbenik">Popravke</a>
+    <a mat-button routerLink="Korisnici" routerLinkActive="active" *ngIf="sluzbenik || upravnik">Korisnici</a>
+    <a mat-button routerLink="Radnici" routerLinkActive="active" *ngIf="upravnik">Radnici</a>
     
 </mat-toolbar>
 <router-outlet></router-outlet>

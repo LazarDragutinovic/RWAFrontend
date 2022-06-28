@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
-import { debounceTime } from 'rxjs';
+import { catchError, debounceTime, of } from 'rxjs';
 import { VoziloLogicko } from 'src/app/models/voziloLogicko';
 import { VozilaService } from 'src/app/services/vozila.service';
 import { VoziloLogickoService } from 'src/app/services/vozilo-logicko.service';
@@ -49,7 +49,11 @@ export class VoziloDodajGlavnaVoziloComponent implements OnInit {
         ,
         slike:[{url:this.forma.value.slika}]  
       }
-      this.voziloService.dodaj(podaci).subscribe(x=>{
+      this.voziloService.dodaj(podaci).pipe(catchError(_=>"g")).subscribe(x=>{
+        if(x=='g') {
+          alert("Vec postoji vozilo s tom oznakom")
+          return
+        }
         alert("Uspesno je dodato vozilo.")
         this.reset();
       })

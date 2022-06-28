@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { appState } from 'src/app/State/appState';
@@ -13,7 +14,7 @@ import { korisnikState } from 'src/app/State/korisnik/korisnikState';
 })
 export class GlavnaComponent implements OnInit {
 
-  constructor(private store:Store<appState>) { }
+  constructor(private store:Store<appState>,private router: Router) { }
   korisnik: Observable<korisnikState> = this.store.select(korisnikSelektor)
   logedin: boolean = false;
   ngOnInit(): void {
@@ -24,11 +25,12 @@ export class GlavnaComponent implements OnInit {
         this.logedin = false
       }
     })
+    this.router.navigateByUrl("/")
   }
 
   logout() {
     this.store.dispatch(logoutKorisnik())
-    
+
   }
 
 }
