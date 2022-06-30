@@ -6,5 +6,5 @@
         <p *ngIf="iznajmljivanje.zavrseno">Zavrseno</p>
         <button *ngIf="!iznajmljivanje.zavrseno" (click)="zavrsi()" mat-raised-button color="warn">Zavrsi</button>
     </div>
-    <mat-card-subtitle *ngIf="zakasnio()">Zakasnio je </mat-card-subtitle>
+    <mat-card-subtitle *ngIf="kasni(iznajmljivanje) < 0 && !iznajmljivanje.zavrseno" style="color: red;">Zakasnio je  {{kasni(iznajmljivanje) * (-1)}}</mat-card-subtitle>
 </mat-card>

@@ -42,7 +42,6 @@ export class KorisnikEffects {
       return this.autenService.logOutRadnika()
       .pipe(
         map(() => {
-          console.log("Ovde")
           return (logoutRadnikSuccess())}),
         catchError(() => of(logoutRadnikFail()))
       )

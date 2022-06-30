@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
-import { of, Observable, switchMap,mergeMap, debounceTime, catchError } from 'rxjs';
+import { of, Observable, switchMap,mergeMap, debounceTime, catchError, filter } from 'rxjs';
 import { Iznajmljivanje } from 'src/app/models/iznajmljivanje';
 import { iznajmljivanjeUprosceno } from 'src/app/models/iznajmljivanje-uprosceno';
 import { Korisnik } from 'src/app/models/korisnik';
@@ -42,14 +42,13 @@ export class KorisnikDetaljnoComponent implements OnInit {
 
   ngOnInit(): void {
     if(this.korisnik)
-      this.iznajmljivanjeServise.preuzmiIznajmljivanjaKorisnikaRadnik(this.korisnik.id).subscribe(x=>{
-                                            console.log(x)                  
+      this.iznajmljivanjeServise.preuzmiIznajmljivanjaKorisnikaRadnik(this.korisnik.id).subscribe(x=>{              
                                             this.iznajmljivanjaKorisnika=x
                                                               })
     
-    this.formPretragaVozila.valueChanges.subscribe(x=>console.log(x))
     this.formPretragaVozila.valueChanges
                         .pipe(debounceTime(500),      
+                              filter(x=>x.proizvodjac != "" && x.grad != "")
                         )
                         .subscribe(x=>{
                           this.voziloService.pretraziSlobodnaVozila(x.proizvodjac,x.grad).subscribe(x=>{
@@ -58,7 +57,6 @@ export class KorisnikDetaljnoComponent implements OnInit {
                 
                         })
   
-  this.iznajmlivanjeForm.valueChanges.subscribe(x=>console.log(x))
   }
 
   
@@ -81,7 +79,14 @@ export class KorisnikDetaljnoComponent implements OnInit {
     if(this.iznajmlivanjeForm.valid) {
       let podaci = this.iznajmlivanjeForm.value;
       this.store.select("korisnikState").subscribe(x=>{
+
+        if(podaci.idVozila <= 0) {
+          alert("Izaberite vozilo.")
+          return
+        }
+
         if(this.korisnik !=null && x.korisnik != null)
+          
           this.iznajmljivanjeServise.dodajIznajmljivanje(podaci.idVozila,x.korisnik.id,this.korisnik.id,podaci.datum,podaci.dana)
           .subscribe(x=>{
             this.iznajmljivanjaKorisnika = [...this.iznajmljivanjaKorisnika,x]

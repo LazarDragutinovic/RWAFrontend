@@ -37,7 +37,6 @@ export class DetaljnoAutomobilComponent implements OnInit {
         if(this.vozilo !== undefined) {
           this.voziloService.preuzmiLike(x.korisnik.id,this.vozilo.id).subscribe(id=>{
             this.likeId = id;
-            console.log(id);
           })
         }
       }
@@ -49,11 +48,11 @@ export class DetaljnoAutomobilComponent implements OnInit {
   lajkuj() {
     this.store.select('korisnikState').subscribe(x=>{
       if(x.korisnik!= null && x.tip == TipKorisnika.KORISNIK && this.vozilo != undefined && this.likeId == -1)
-        { console.log("wow")
+        { 
           this.voziloService.lajkuj(x.korisnik?.id,this.vozilo?.id).subscribe(x=>{
             this.brojLajkova+=1
             this.likeId = x;
-            console.log(this.likeId)
+            
           })
         }
     })

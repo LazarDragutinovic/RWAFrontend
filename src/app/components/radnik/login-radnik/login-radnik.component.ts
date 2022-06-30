@@ -31,9 +31,7 @@ export class LoginRadnikComponent implements OnInit {
           this.router.navigateByUrl("/radnik")
           if((<Radnik>x.korisnik).odobren && x.centar == null)
             this.store.dispatch(preuzmiCentarZaRadnika({id:x.korisnik.id}))
-            this.store.select("korisnikState").subscribe(x=>{
-              console.log(x.centar)
-            })
+            
         }
       })
 

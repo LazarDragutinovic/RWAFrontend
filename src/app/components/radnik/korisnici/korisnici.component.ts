@@ -24,7 +24,6 @@ export class KorisniciComponent implements OnInit {
                                                                           filter(x=>x.length>2),
                                                                           switchMap(x=>this.korisnikService.preuzmiKorisnike(x)))
   ngOnInit(): void {
-    this.korisnici.subscribe(x=>console.log(x))
   }
 
   resetujKorisnika(){

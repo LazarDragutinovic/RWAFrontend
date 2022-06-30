@@ -24,6 +24,8 @@ export class PocetnaStranaComponent implements OnInit {
     grad:[""]
   })
 
+  strana:number = 0;
+
   vozila: Observable<Vozilo[]>=of([]);
   ngOnInit(): void {
     this.formInputiZaPretragu.valueChanges
@@ -32,8 +34,6 @@ export class PocetnaStranaComponent implements OnInit {
         if(x.proizvodjac == "" || x.grad == "") this.store.dispatch(loadVozilaSva())
         else this.store.dispatch(loadVozilaPretraga({proizvodjac:x.proizvodjac,grad:x.grad}))})
     this.vozila = this.store.select(voizlaSelector);
-    
-    this.vozila.subscribe(x=>console.log(x))
     this.store.dispatch(loadVozilaSva())
     
 

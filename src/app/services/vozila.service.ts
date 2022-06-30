@@ -35,7 +35,6 @@ export class VozilaService {
   }
   
   lajkuj(idk: number, idv: number){
-    console.log(idk,idv)
     return this.httpClient.post<number>(environment.api+"like/DodajLike/"+idv+"/"+idk,null,{withCredentials:true}).pipe(map(x=><number>x))
   }
 

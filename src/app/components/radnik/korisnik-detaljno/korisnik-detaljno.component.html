@@ -28,6 +28,8 @@
             <label>Dana</label>
             <input formControlName="dana" type="number" min="1" value="1">
             <select formControlName="idVozila">
+      
+                <option value="-1">izaberi vozilo</option>
                 <option [value]="vozilo.id" *ngFor="let vozilo of vozila">{{vozilo.voziloLogicko?.proizvodjac+" "+ vozilo.voziloLogicko?.model+ " "+ vozilo.registracionaOznaka}}</option>
             </select>
              

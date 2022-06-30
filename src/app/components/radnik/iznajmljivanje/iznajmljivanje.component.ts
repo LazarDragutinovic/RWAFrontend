@@ -33,6 +33,13 @@ export class IznajmljivanjeComponent implements OnInit {
     return ""
   }
 
+  kasni(iznajmljivanje: iznajmljivanjeUprosceno) {
+    let datum = new Date(iznajmljivanje.datum)
+    let rok = new Date()
+    rok.setDate(datum.getDate()+iznajmljivanje.dana)
+    return rok.getDate() - new Date(Date.now()).getDate()
+  }
+
   zakasnio(){
     if(this.iznajmljivanje){
       let result = new Date(this.iznajmljivanje.datum)

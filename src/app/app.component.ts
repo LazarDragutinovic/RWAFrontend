@@ -15,7 +15,6 @@ export class AppComponent implements OnInit {
   ngOnInit(){
     this.store.dispatch(validirajKorisnika());
     this.store.dispatch(validirajRadnika());
-    this.store.select('korisnikState').subscribe(x=>console.log(x))
     //this.store.dispatch(loginKorisnika({email:"Deki@gmail.com",lozinka:"DA"}))
   }
 }

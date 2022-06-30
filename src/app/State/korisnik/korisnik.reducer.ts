@@ -46,11 +46,9 @@ let korisnikReducer = createReducer(initialState,
         return newState
     }),
     on(logoutRadnikSuccess,(state)=>{
-        console.log("WTF")
         let newState = {...state}
         newState.korisnik = null;
         newState.tip = TipKorisnika.KORISNIK
-        console.log(newState)
         return newState
     }),
     on(preuzmiCentarZaRadnikaSuccse,(state,centar)=>{
