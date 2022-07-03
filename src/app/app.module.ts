@@ -54,6 +54,7 @@ import { VoziloKarticaComponent } from './components/radnik/vozilo-kartica/vozil
 import { VoziloDetaljnoComponent } from './components/radnik/vozilo-detaljno/vozilo-detaljno.component';
 import { SastanakLjudiComponent } from './components/radnik/sastanak-ljudi/sastanak-ljudi.component';
 import { SastanakRadnikComponent } from './components/radnik/sastanak-radnik/sastanak-radnik.component';
+import { SidebarComponent } from './components/radnik/sidebar/sidebar.component';
 
 @NgModule({
   declarations: [
@@ -88,6 +89,7 @@ import { SastanakRadnikComponent } from './components/radnik/sastanak-radnik/sas
     VoziloDetaljnoComponent,
     SastanakLjudiComponent,
     SastanakRadnikComponent,
+    SidebarComponent,
   
   ],
   imports: [

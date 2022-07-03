@@ -1,3 +1,17 @@
 .active {
     border: 1px solid white;
 }
+
+.SidebarToggler {
+    display: none;
+}
+
+@media (max-width: 470px) {
+    .PrimarneNavKontrole {
+        display: none;
+    }
+
+    .SidebarToggler {
+        display: inline;
+    }
+}

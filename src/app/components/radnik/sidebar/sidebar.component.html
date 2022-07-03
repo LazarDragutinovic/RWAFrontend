@@ -1,0 +1,13 @@
+<div [class]="klase">
+    <div class="linkovi">
+        <a mat-raised-button color="primary" routerLink="./" routerLinkActive="active" *ngIf="loginovan" [routerLinkActiveOptions]="{ exact: true }">Pocetna</a>
+        <a mat-raised-button color="primary" routerLink="Login" routerLinkActive="active" *ngIf="!loginovan">Login</a>
+        <button mat-raised-button color="primary" (click)="logout()" *ngIf="loginovan">Logout</button>
+        <a mat-raised-button color="primary" routerLink="Sastanak" routerLinkActive="active" *ngIf="loginovan">Sastanci</a>
+        <a mat-raised-button color="primary" routerLink="Vozila" routerLinkActive="active" *ngIf="upravnik">Vozila</a>
+        <a mat-raised-button color="primary" routerLink="Popravke" routerLinkActive="active" *ngIf="mehanicar || sluzbenik">Popravke</a>
+        <a mat-raised-button color="primary" routerLink="Korisnici" routerLinkActive="active" *ngIf="sluzbenik || upravnik">Korisnici</a>
+        <a mat-raised-button color="primary" routerLink="Radnici" routerLinkActive="active" *ngIf="upravnik">Radnici</a>
+    </div>
+    <button class="ukloniSidebarDugme" (click)="ukloniSidebar()">X</button>
+</div>

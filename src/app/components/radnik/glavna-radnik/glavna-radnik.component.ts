@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Pozicija, Radnik } from 'src/app/models/radnik';
@@ -17,6 +17,12 @@ export class GlavnaRadnikComponent implements OnInit {
   upravnik: boolean = false;
   sluzbenik: boolean = false;
   mehanicar: boolean = false;
+
+  prikaziSidebar: EventEmitter<boolean> = new EventEmitter();
+  toggleSidebar() {
+    
+    this.prikaziSidebar.emit(true);
+  }
 
   ngOnInit(): void {
     this.store.select("korisnikState").subscribe(x=>{
