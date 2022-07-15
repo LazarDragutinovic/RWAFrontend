@@ -12,3 +12,11 @@
     margin: 20px auto;
     
 }
+
+.CenaPoDanuPrikaz {
+    background-color: rgb(9, 9, 80);
+    color: white;
+    font-size: 20px;
+    padding: 5px;
+    border-radius: 2px;
+}

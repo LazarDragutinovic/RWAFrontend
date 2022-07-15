@@ -30,7 +30,12 @@ export class GlavnaComponent implements OnInit {
 
   logout() {
     this.store.dispatch(logoutKorisnik())
-
+    let subsc = this.store.select("korisnikState").subscribe(x=>{
+      if(x.korisnik == null) {
+        this.router.navigateByUrl("/");
+        subsc.unsubscribe();
+      } 
+    })
   }
 
 }

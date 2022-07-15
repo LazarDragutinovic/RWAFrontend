@@ -1,13 +1,16 @@
 <mat-card  *ngIf="vozilo" class="DetaljnoVoziloKorisnik">
     <mat-card-title>{{vozilo?.voziloLogicko?.proizvodjac + " " + vozilo?.voziloLogicko?.model}}</mat-card-title>
+    <mat-card-subtitle>{{"Tip vozila: "+ vozilo?.voziloLogicko?.tip}}</mat-card-subtitle>
     <mat-card-subtitle>{{"godina prozivodjne: "+vozilo.godiste}}</mat-card-subtitle>
-    <mat-card-subtitle>{{"Nalazi se u centru: "+vozilo.centar?.naziv}}</mat-card-subtitle>
-    <mat-card-subtitle>{{"Adresa centra: "+ vozilo.centar?.adresa + " " + vozilo.centar?.grad}}</mat-card-subtitle>
-    <mat-card-subtitle>{{"Cena po danu: "+ vozilo.cenaPoDanu+"din"}}</mat-card-subtitle>
+    <mat-card-subtitle *ngIf="vozilo.centar">Nalazi se u centru: <a routerLink="/Centri">{{vozilo.centar?.naziv}}</a></mat-card-subtitle>
+    <mat-card-subtitle *ngIf="vozilo.centar">{{"Adresa centra: "+ vozilo.centar?.adresa + " " + vozilo.centar?.grad}}</mat-card-subtitle>
+    <mat-card-subtitle *ngIf="!vozilo.centar">Vozilo jos uvek nije rasporedjeno u nekom centru.</mat-card-subtitle>
+    <mat-card-subtitle><span class="CenaPoDanuPrikaz">{{"Cena po danu: "+ vozilo.cenaPoDanu+"din"}}</span></mat-card-subtitle>
+    <br>
     <div class="Slike">
         <img mat-card-image *ngFor="let slika of vozilo.slike" [src]="sanitizeUlr(slika.url)"/>
     </div>
-    <div class="Lajkovi">
+    <div class="Lajkovi" *ngIf="vozilo.centar">
         <span>{{"Lajkovano "+ brojLajkova +" puta."}}</span>
         <button mat-raised-button color="primary" *ngIf="imaKorisnika" (click)="lajkuj()">Like</button>
         <button mat-raised-button color="warn" *ngIf="imaKorisnika" (click)="dislike()">Dislike</button>

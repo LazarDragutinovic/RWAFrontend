@@ -1,7 +1,8 @@
 .dodajVoziloLogicko form {
     display: flex;
     flex-direction: column;
-    width: 270px;
+    max-width: 270px;
+    width: 90%;
     margin: 20px auto;
     align-items: center;    
 }

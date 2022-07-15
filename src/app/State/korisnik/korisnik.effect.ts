@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { of } from 'rxjs';
@@ -28,7 +29,11 @@ export class KorisnikEffects {
       mergeMap(({email,lozinka}) => this.autenService.loginKorisnika(email,lozinka)
         .pipe(
           map(korisnik => (loginKorisnikaSuccess(korisnik))),
-          catchError(() => of(loginKorisnikaFail()))
+          catchError((err:HttpErrorResponse) => {
+            console.log(err)
+            alert(err.error.message);
+            return of(loginKorisnikaFail())
+          })
         )
       )
     )

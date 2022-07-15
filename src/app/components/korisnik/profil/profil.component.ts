@@ -43,6 +43,11 @@ export class ProfilComponent implements OnInit {
     return rok.getDate() - new Date(Date.now()).getDate()
   }
 
+  status(iznajmljivanje: iznajmljivanjeUprosceno) {
+    if(iznajmljivanje.zavrseno) return "zavrseno";
+    return "nije zavrseno"
+  }
+
   logout(){
     this.store.dispatch(logoutKorisnik());
   }

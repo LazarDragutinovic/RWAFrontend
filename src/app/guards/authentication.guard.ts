@@ -17,7 +17,7 @@ export class AuthenticationGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
 
-    return this.store.select(korisnikSelektor).pipe(debounceTime(500),map(x=>{
+    return this.store.select(korisnikSelektor).pipe(debounceTime(200),map(x=>{
            
       if(x.korisnik && x.tip == TipKorisnika.RADNIK) {
         if((<Radnik>x.korisnik).odobren)

@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
     lozinka:[""]
   })
 
-  prikaziStvari(){
+  login(){
     this.store.dispatch(loginKorisnika(this.loginForm.value));
     let i = 0;
     this.store.select('korisnikState').subscribe(x=>{
