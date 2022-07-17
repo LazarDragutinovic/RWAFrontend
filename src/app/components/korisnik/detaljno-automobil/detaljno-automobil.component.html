@@ -1,6 +1,7 @@
 <mat-card  *ngIf="vozilo" class="DetaljnoVoziloKorisnik">
     <mat-card-title>{{vozilo?.voziloLogicko?.proizvodjac + " " + vozilo?.voziloLogicko?.model}}</mat-card-title>
     <mat-card-subtitle>{{"Tip vozila: "+ vozilo?.voziloLogicko?.tip}}</mat-card-subtitle>
+    <mat-card-subtitle>{{"Oznaka: "+vozilo.registracionaOznaka}}</mat-card-subtitle>
     <mat-card-subtitle>{{"godina prozivodjne: "+vozilo.godiste}}</mat-card-subtitle>
     <mat-card-subtitle *ngIf="vozilo.centar">Nalazi se u centru: <a routerLink="/Centri">{{vozilo.centar?.naziv}}</a></mat-card-subtitle>
     <mat-card-subtitle *ngIf="vozilo.centar">{{"Adresa centra: "+ vozilo.centar?.adresa + " " + vozilo.centar?.grad}}</mat-card-subtitle>
